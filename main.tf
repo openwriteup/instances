@@ -9,6 +9,7 @@ region = "us-east-1"
 resource "aws_instance" "my_vm" {
 ami = "ami-0cf43e890af9e3351"
 subnet_id = data.terraform_remote_state.network_details.outputs.my_subnet
+key_name = data.terraform_remote_state.network_details.outputs.my_key_pair_name
 instance_type = "t3.micro"
 tags = {
 Name = "amitvm"
